@@ -88,8 +88,8 @@ Vagrant.configure("2") do |config|
     systemctl enable httpd
     systemctl status httpd
 
-    touch /etc/httpd/conf.d/mylocalhost.conf
-    echo '<VirtualHost *:443> && ServerName 127.0.0.1&& DocumentRoot /var/www/sslsertific && SSLEngine on && SSLCertificateFile /etc/pki/tls/certs/apache-selfsigned.crt && SSLCertificateKeyFile /etc/pki/tls/private/apache-selfsigned.key && </VirtualHost>' >>/etc/httpd/conf.d/mylocalhost.conf
+  
+    mv /vagrant/mylocalhost.conf /etc/httpd/conf.d/
 
     apachectl configtest
     systemctl reload httpd
